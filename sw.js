@@ -3,11 +3,11 @@ const assets = [
   './',
   './index.html',
   './manifest.json',
-  './Images/title.png',
-  './Images/Logoapp.png',
-  './Images/Logotitle.png',
-  './Images/30vip.png',
-  './Images/40vip.png'
+  './title.png',
+  './Logoapp.png',
+  './Logotitle.png',
+  './30vip.png',
+  './40vip.png'
 ];
 
 // نصب سرویس ورکر و ذخیره فایل‌ها در کش
