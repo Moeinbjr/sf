@@ -1,0 +1,22 @@
+{
+  "short_name": "moein | bjr",
+  "name": "moein baghjari | توسعه دهنده ی وب",
+  "icons": [
+    {
+      "src": "Images/Logoapp.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Images/Logotitle.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#4f46e5",
+  "background_color": "#ffffff",
+  "dir": "rtl",
+  "lang": "fa-IR"
+}

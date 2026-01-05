@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moein Baghjari | Shopping</title>
+    <link rel="icon" type="image/png" href="Images/title.png">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        /* ========================================
+           STRATEGY: MODERN GLASSMORPHISM & UX
+           DEVELOPER: GEMINI FOR MOEIN BAGHJARI
+           ========================================
+        */
+
+        :root {
+            --p-600: #4f46e5;
+            --p-500: #6366f1;
+            --p-400: #818cf8;
+            --accent: #f43f5e;
+            --success: #10b981;
+            --surface: #ffffff;
+            --body-bg: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --radius-xl: 32px;
+            --radius-lg: 20px;
+            --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --nav-height: 85px;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--body-bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- SMART HEADER SYSTEM --- */
+        .smart-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+        }
+
+        .smart-nav.nav-hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        .nav-content {
+            width: 90%;
+            max-width: 1400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--p-600), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .search-wrapper {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 30px;
+            position: relative;
+            display: none; /* Only show in internal pages */
+        }
+
+        .search-wrapper input {
+            width: 100%;
+            padding: 12px 45px 12px 20px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-wrapper input:focus {
+            border-color: var(--p-500);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            background: #fff;
+        }
+
+        .search-wrapper i {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-cart {
+            width: 50px;
+            height: 50px;
+            border-radius: 16px;
+            border: none;
+            background: var(--p-500);
+            color: white;
+            cursor: pointer;
+            position: relative;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-cart:hover {
+            transform: scale(1.05);
+            background: var(--p-600);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 160px 20px 80px;
+            background: radial-gradient(circle at top right, #eef2ff 0%, #ffffff 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--p-400);
+            filter: blur(120px);
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 950;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        /* --- CATEGORY GRID (BIG BUTTONS) --- */
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
+        }
+
+        .cat-card {
+            background: var(--surface);
+            padding: 50px 30px;
+            border-radius: var(--radius-xl);
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--p-500);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.1);
+        }
+
+        .cat-card i {
+            font-size: 4.5rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            background: linear-gradient(135deg, var(--p-600), var(--p-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cat-card h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .cat-card p {
+            color: var(--text-muted);
+        }
+
+        /* --- INTERNAL PAGE STYLES --- */
+        .page {
+            display: none;
+            padding: 130px 4% 60px;
+            animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .page.active { display: block; }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            cursor: pointer;
+            font-weight: 800;
+            color: var(--p-600);
+            margin-bottom: 40px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: var(--p-600);
+            color: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            border: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: 0.4s;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow);
+            transform: scale(1.02);
+        }
+
+        .product-visual {
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #f8fafc;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #cbd5e1;
+            overflow: hidden;
+            /* 🟡 عکس خود را اینجا قرار دهید: <img src="..." class="fit-img"> */
+        }
+
+        .fit-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .btn-action {
+            width: 100%;
+            height: 55px;
+            border-radius: 16px;
+            border: none;
+            background: var(--p-500);
+            color: white;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-action.in-cart {
+            background: var(--success);
+        }
+
+        /* --- CART SIDEBAR (DRAWER) --- */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 420px;
+            height: 100%;
+            background: #fff;
+            z-index: 2000;
+            box-shadow: 30px 0 60px rgba(0,0,0,0.1);
+            transition: 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-sidebar.open {
+            left: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(8px);
+            z-index: 1500;
+            display: none;
+            animation: fadeIn 0.4s;
+        }
+
+        .cart-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #f1f5f9;
+            position: relative;
+        }
+
+        .item-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .progress-container {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--p-500);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .dl-link {
+            display: none;
+            color: var(--p-600);
+            font-weight: 900;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            animation: fadeIn 0.5s;
+        }
+
+        /* --- NOTIFICATION POPUP --- */
+        #notify {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: #fff;
+            padding: 40px;
+            border-radius: 30px;
+            z-index: 3000;
+            text-align: center;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+            display: none;
+            opacity: 0;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #notify.active {
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .check-circle {
+            width: 100px;
+            height: 100px;
+            background: var(--success);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 20px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.2rem; }
+            .cart-sidebar { width: 100%; }
+            .cat-card { padding: 40px 20px; }
+            .brand-logo { font-size: 1.3rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="smart-nav" id="navbar">
+        <div class="nav-content">
+            <div class="brand-logo" onclick="app.showHome()">Moein Baghjari</div>
+            
+            <div class="search-wrapper" id="searchField">
+                <i class="fas fa-search"></i>
+                <input type="text" id="mainSearch" placeholder="جستجو در خدمات رایگان...">
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-cart" onclick="app.toggleCart(true)">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="homePage" class="page active" style="padding: 0;">
+        <section class="hero">
+            <h1 class="hero-title animate__animated animate__fadeInDown">Moein Baghjari</h1>
+            <p class="hero-subtitle animate__animated animate__fadeInUp">
+                مرجع تخصصی ارائه سورس‌کدها، ربات‌ها و پروژه‌های رایگان برای توسعه‌دهندگان فارسی‌زبان. 
+                اینجا همه چیز برای یادگیری شما آماده است.
+            </p>
+        </section>
+
+        <div class="container">
+            <div class="cat-grid">
+                <div class="cat-card animate__animated animate__zoomIn" onclick="app.loadCategory('python')">
+                    <i class="fab fa-python"></i>
+                    <h2>پروژه‌های پایتون</h2>
+                    <p>از اسکریپت‌های اتوماسیون تا هوش مصنوعی</p>
+                </div>
+                <div class="cat-card animate__animated animate__zoomIn" style="animation-delay: 0.1s" onclick="app.loadCategory('telegram')">
+                    <i class="fab fa-telegram-plane"></i>
+                    <h2>ربات‌های تلگرام</h2>
+                    <p>سورس‌های آماده برای ربات‌های فروشگاهی و مدیریتی</p>
+                </div>
+                <div class="cat-card animate__animated animate__zoomIn" style="animation-delay: 0.2s" onclick="app.loadCategory('web')">
+                    <i class="fas fa-laptop-code"></i>
+                    <h2>توسعه وب</h2>
+                    <p>قالب‌های مدرن و ابزارهای فرانت‌اند حرفه‌ای</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="categoryPage" class="page">
+        <div class="container">
+            <button class="back-btn" onclick="app.showHome()">
+                <i class="fas fa-arrow-right"></i>
+                بازگشت به خانه
+            </button>
+            <div id="productContainer" class="product-grid">
+                </div>
+        </div>
+    </section>
+
+    <div class="overlay" id="uiOverlay" onclick="app.toggleCart(false)"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+            <h2 style="font-weight: 900;">لیست دریافت</h2>
+            <i class="fas fa-times" onclick="app.toggleCart(false)" style="cursor:pointer; font-size:1.5rem;"></i>
+        </div>
+        <div id="cartItemsList" style="flex: 1; overflow-y: auto; padding-left: 5px;">
+            </div>
+    </div>
+
+    <div id="notify">
+        <div class="check-circle"><i class="fas fa-check"></i></div>
+        <h2 style="font-weight: 900;">با موفقیت افزوده شد</h2>
+        <p style="color: var(--text-muted); margin-top: 10px;">پروژه در لیست دریافت شما قرار گرفت</p>
+    </div>
+
+    <script>
+        /**
+         * MOEIN SHOP - ARCHITECTURE v4.0
+         * Designed by Gemini
+         */
+
+        const app = {
+            // 🔵 پایگاه داده محصولات - برای افزودن محصول جدید کافیست یک آبجکت به این لیست اضافه کنید
+            db: [
+                { id: 1, cat: 'python', name: 'آنالیزور داده‌های اکسل', desc: 'کتابخانه‌ای قدرتمند برای پردازش فایل‌های سنگین مالی.', icon: 'file-csv' },
+                { id: 2, cat: 'python', name: 'بات تشخیص چهره', desc: 'پروژه پردازش تصویر با کتابخانه OpenCV پایتون.', icon: 'user-viewfinder' },
+                { id: 3, cat: 'telegram', name: 'ربات فروشگاهی حرفه‌ای', desc: 'سورس کامل ربات متصل به درگاه پرداخت مستقیم.', icon: 'shop' },
+                { id: 4, cat: 'telegram', name: 'ربات مدیریت هوشمند گروه', desc: 'پاکسازی خودکار لینک، اسپم و کلمات نامناسب.', icon: 'shield-halved' },
+                { id: 5, cat: 'web', name: 'قالب شخصی Glassmorphism', desc: 'یک لندینگ پیج مدرن با افکت‌های شیشه‌ای.', icon: 'palette' },
+                { id: 6, cat: 'web', name: 'داشبورد ادمین واکنش‌گرا', desc: 'پنل مدیریت کامل با نمودارهای Chart.js.', icon: 'gauge-high' }
+            ],
+
+            cart: JSON.parse(localStorage.getItem('moein_vault')) || [],
+            currentCategory: '',
+
+            init() {
+                this.handleScroll();
+                this.updateCartUI();
+                this.setupSearch();
+            },
+
+            // --- NAVIGATION LOGIC ---
+            loadCategory(cat) {
+                this.currentCategory = cat;
+                document.getElementById('homePage').classList.remove('active');
+                document.getElementById('categoryPage').classList.add('active');
+                
+                // Show search only on internal pages
+                document.getElementById('searchField').style.display = 'block';
+                document.querySelector('.brand-logo').innerHTML = 'بازگشت';
+
+                this.renderProducts(cat);
+                window.scrollTo(0, 0);
+            },
+
+            showHome() {
+                this.currentCategory = '';
+                document.getElementById('categoryPage').classList.remove('active');
+                document.getElementById('homePage').classList.add('active');
+                
+                document.getElementById('searchField').style.display = 'none';
+                document.querySelector('.brand-logo').innerHTML = 'Moein Baghjari';
+                window.scrollTo(0, 0);
+            },
+
+            // --- RENDER LOGIC ---
+            renderProducts(cat) {
+                const container = document.getElementById('productContainer');
+                const filtered = this.db.filter(p => p.cat === cat);
+                
+                container.innerHTML = filtered.map(p => {
+                    const isInCart = this.cart.find(item => item.id === p.id);
+                    return `
+                        <div class="product-card animate__animated animate__fadeInUp" data-name="${p.name}">
+                            <div class="product-visual"><i class="fas fa-${p.icon}"></i></div>
+                            <h3 class="product-name">${p.name}</h3>
+                            <p class="product-desc">${p.desc}</p>
+                            <button class="btn-action ${isInCart ? 'in-cart' : ''}" 
+                                    onclick="app.addToCart(${p.id})">
+                                <i class="fas fa-${isInCart ? 'check-double' : 'plus'}"></i>
+                                ${isInCart ? 'در لیست شما موجود است' : 'دریافت رایگان'}
+                            </button>
+                        </div>
+                    `;
+                }).join('');
+            },
+
+            // --- CART LOGIC ---
+            addToCart(id) {
+                if(this.cart.find(i => i.id === id)) return;
+                const product = this.db.find(p => p.id === id);
+                this.cart.push(product);
+                this.save();
+                this.showNotify();
+                this.renderProducts(this.currentCategory);
+            },
+
+            save() {
+                localStorage.setItem('moein_vault', JSON.stringify(this.cart));
+                this.updateCartUI();
+            },
+
+            updateCartUI() {
+                document.getElementById('cartCount').innerText = this.cart.length;
+            },
+
+            toggleCart(open) {
+                const sidebar = document.getElementById('cartSidebar');
+                const overlay = document.getElementById('uiOverlay');
+                
+                if(open) {
+                    sidebar.classList.add('open');
+                    overlay.style.display = 'block';
+                    this.renderCartItems();
+                } else {
+                    sidebar.classList.remove('open');
+                    overlay.style.display = 'none';
+                }
+            },
+
+            renderCartItems() {
+                const container = document.getElementById('cartItemsList');
+                if(this.cart.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; padding-top:100px; opacity:0.3;"><i class="fas fa-folder-open" style="font-size:4rem;"></i><p style="margin-top:20px;">لیست شما خالی است</p></div>';
+                    return;
+                }
+
+                container.innerHTML = this.cart.map((item, index) => `
+                    <div class="cart-item animate__animated animate__fadeInRight" style="animation-delay: ${index * 0.1}s">
+                        <div class="item-info">
+                            <strong>${item.name}</strong>
+                            <i class="fas fa-trash" style="color:var(--accent); cursor:pointer;" onclick="app.removeFromCart(${index})"></i>
+                        </div>
+                        <div class="progress-container" id="prog-c-${index}"><div class="progress-fill" id="prog-f-${index}"></div></div>
+                        <button class="btn-action" id="dl-btn-${index}" onclick="app.simulateDownload(${index})" style="height:40px; font-size:0.8rem;">
+                            <i class="fas fa-download"></i> آماده‌سازی فایل
+                        </button>
+                        <a href="https://dl.moein.com/file-${item.id}.zip" class="dl-link" id="link-${index}" target="_blank">
+                            <i class="fas fa-link"></i> لینک دانلود مستقیم (آماده کلیک)
+                        </a>
+                    </div>
+                `).join('');
+            },
+
+            simulateDownload(index) {
+                const btn = document.getElementById(`dl-btn-${index}`);
+                const cont = document.getElementById(`prog-c-${index}`);
+                const fill = document.getElementById(`prog-f-${index}`);
+                const link = document.getElementById(`link-${index}`);
+
+                btn.style.display = 'none';
+                cont.style.display = 'block';
+
+                let width = 0;
+                const interval = setInterval(() => {
+                    width += Math.random() * 5;
+                    if (width >= 100) {
+                        width = 100;
+                        clearInterval(interval);
+                        cont.style.display = 'none';
+                        link.style.display = 'block';
+                    }
+                    fill.style.width = width + '%';
+                }, 80);
+            },
+
+            removeFromCart(index) {
+                this.cart.splice(index, 1);
+                this.save();
+                this.renderCartItems();
+                if(this.currentCategory) this.renderProducts(this.currentCategory);
+            },
+
+            // --- UX FEATURES ---
+            handleScroll() {
+                let lastScroll = 0;
+                const nav = document.getElementById('navbar');
+
+                window.addEventListener('scroll', () => {
+                    const currentScroll = window.pageYOffset;
+                    
+                    if (currentScroll > lastScroll && currentScroll > 150) {
+                        nav.classList.add('nav-hidden');
+                    } else {
+                        nav.classList.remove('nav-hidden');
+                    }
+                    lastScroll = currentScroll;
+                });
+            },
+
+            showNotify() {
+                const modal = document.getElementById('notify');
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('active'), 10);
+                setTimeout(() => {
+                    modal.classList.remove('active');
+                    setTimeout(() => modal.style.display = 'none', 400);
+                }, 1800);
+            },
+
+            setupSearch() {
+                document.getElementById('mainSearch').addEventListener('input', (e) => {
+                    const term = e.target.value.toLowerCase();
+                    document.querySelectorAll('.product-card').forEach(card => {
+                        const name = card.dataset.name.toLowerCase();
+                        card.style.display = name.includes(term) ? 'flex' : 'none';
+                    });
+                });
+            }
+        };
+
+        // Launch App
+        window.onload = () => app.init();
+
+    </script>
+</body>
+</html>
