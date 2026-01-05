@@ -6,8 +6,8 @@ const assets = [
   './title.png',
   './Logoapp.png',
   './Logotitle.png',
-  './30vip.png',
-  './40vip.png'
+  '30vip.png',
+  '40vip.png'
 ];
 
 // نصب سرویس ورکر و ذخیره فایل‌ها در کش
