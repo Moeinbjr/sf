@@ -3,14 +3,14 @@
   "name": "moein baghjari | توسعه دهنده ی وب",
   "icons": [
     {
-      "src": "Images/Logoapp.png",
+      "src": "./Logoapp.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "Images/Logotitle.png",
+      "src": "./Logotitle.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "./png"
     }
   ],
   "start_url": ".",
